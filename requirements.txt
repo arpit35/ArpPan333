@@ -1,3 +1,5 @@
 
 pandas==2.0.3
+beautifulsoup4==4.12.3
+nltk==3.8.1
 python.exe -m pip install --upgrade pip
