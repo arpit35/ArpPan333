@@ -3,7 +3,7 @@ import preprocessing.stopwords_remove as stopwords_remove
 import preprocessing.text_sanitization as text_sanitization
 
 
-def preprocessor(df, column_name):
+def preprocessor(df, column_name, drop_empty_strings=True):
     df[column_name] = (
         df[column_name]
         .apply(text_sanitization.text_sanitizer)
@@ -12,4 +12,6 @@ def preprocessor(df, column_name):
     )
 
     # Remove rows with empty strings
-    return df[df[column_name].notna() & df[column_name].ne("")]
+    if drop_empty_strings:
+        return df[df[column_name].ne("")]
+    return df

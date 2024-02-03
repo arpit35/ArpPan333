@@ -1,5 +1,7 @@
-
-pandas==2.0.3
+pandas==2.2.0
 beautifulsoup4==4.12.3
 nltk==3.8.1
-python.exe -m pip install --upgrade pip
+xgboost==2.0.3
+uvicorn==0.27.0.post1
+fastapi==0.109.1
+pytest==8.0.0
