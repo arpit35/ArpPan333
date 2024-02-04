@@ -1,18 +1,19 @@
-import numpy as np
 from lightgbm import LGBMClassifier
 from sklearn.metrics import accuracy_score, classification_report
 
 
 def get_lgbm(x_train, y_train, x_test, y_test, le):
+
     model = LGBMClassifier(
         objective="multiclass",
         num_class=len(le.classes_),
         max_depth=7,
-        num_leaves=100,
+        num_leaves=40,
         class_weight="balanced",
-        min_split_gain=40,
         n_estimators=150,
         learning_rate=0.1,
+        reg_alpha=0.1,
+        min_child_samples=20,
     )
     model.fit(x_train, y_train)
 
