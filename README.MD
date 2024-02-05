@@ -3,24 +3,24 @@
 This project is a text classification system that uses LightGBM for classification. The project includes scripts for data preprocessing, model training, testing, and a FastAPI application for serving the model. The project also includes Docker support for containerization and GitHub Actions workflows for continuous integration.
 
 ## Folder Structure
-- [main.py](./main.py) - [🔗](#mainpy)
+- [main.py](./main.py) - [🔗](#main.py)
 - [preprocessing](./preprocessing)
-  - [main.py](./preprocessing/main.py) - [🔗](#preprocessing-mainpy)
-  - [stem_words.py](./preprocessing/stem_words.py) - [🔗](#stem-words)
-  - [stopwords_remove.py](./preprocessing/stopwords_remove.py) - [🔗](#stopwords-remove)
-  - [text_sanitization.py](./preprocessing/text_sanitization.py) - [🔗](#text-sanitization)
+  - [main.py](./preprocessing/main.py) - [🔗](#preprocessing/main.py)
+  - [text_sanitization.py](./preprocessing/text_sanitization.py) - [🔗](#text_sanitization.py)
+  - [stopwords_remove.py](./preprocessing/stopwords_remove.py) - [🔗](#stopwords_remove.py)
+  - [stem_words.py](./preprocessing/stem_words.py) - [🔗](#stem_words.py)
   - [utils](./preprocessing/utils)
-    - [regex.py](./preprocessing/utils/regex.py) - [🔗](#regex)
+    - [regex.py](./preprocessing/utils/regex.py) - [🔗](#utils/regex.py)
 - [model_training](./model_training)
-  - [LGBMClassifier.py](./model_training/LGBMClassifier.py) - [🔗](#lgbmclassifier)
-  - [gridSearch_with_lgbm.py](./model_training/gridSearch_with_lgbm.py) - [🔗](#gridsearch-with-lgbm)
+  - [LGBMClassifier.py](./model_training/LGBMClassifier.py) - [🔗](#LGBMClassifier-file)
+  - [gridSearch_with_lgbm.py](./model_training/gridSearch_with_lgbm.py) - [🔗](#gridSearch_with_lgbm-file)
 - [testing](./testing)
-  - [test_text_classifier.py](./testing/test_text_classifier.py) - [🔗](#test-text-classifier)
-- [app.py](./app.py) - [🔗](#apppy)
-- [Dockerfile](./Docker/Dockerfile) - [🔗](#dockerfile)
-- [.github](./github)
-  - [workflows](./github/workflows)
-    - [docker-image.yml](./github/workflows/docker-image.yml)
+  - [test_text_classifier.py](./testing/test_text_classifier.py) - [🔗](#Testing)
+- [app.py](./app.py) - [🔗](#app)
+- [Dockerfile](./Dockerfile) - [🔗](#Dockerfile)
+- [.github](./.github)
+  - [workflows](./.github/workflows)
+    - [docker-image.yml](./.github/workflows/docker-image.yml) - [🔗](#docker-image.yml)
 
 # main.py
 
@@ -69,7 +69,7 @@ This module contains the `stopwords_remover` function that removes German stopwo
 
 This module contains the `stemmer` function that applies stemming to the text. The function uses the SnowballStemmer for German language to stem each word in the text.
 
-## main.py
+## preprocessing/main.py
 
 This module contains the `preprocessor` function that applies all the preprocessing steps to a specified column of a DataFrame. The function applies the `text_sanitizer`, `stopwords_remover`, and `stemmer` functions to the specified column. It also removes the rows with empty strings if the `drop_empty_strings` parameter is `True`.
 
@@ -146,6 +146,10 @@ The `app.py` file is the main entry point for the FastAPI application. It sets u
 
 # Docker
 
-1. `Dockerfile`: This file is used to build a Docker image for the application. It starts from an Ubuntu base image, updates the system packages, installs Python3 and pip3, upgrades pip, sets the working directory to `/code`, copies the necessary files and directories into the Docker image, installs the Python dependencies from `requirements.txt`, and finally sets the command to start the FastAPI application using `uvicorn`.
+## Dockerfile
 
-2. `docker-image.yml`: This is a GitHub Actions workflow file that builds and pushes a Docker image to Docker Hub whenever there's a push or pull request to the `main` branch. It checks out the code, sets up Docker Buildx, logs into Docker Hub using secrets, and builds and pushes the Docker image. The Docker image is tagged as `encore7/germanTextClassifier:latest`.
+This file is used to build a Docker image for the application. It starts from an Ubuntu base image, updates the system packages, installs Python3 and pip3, upgrades pip, sets the working directory to `/code`, copies the necessary files and directories into the Docker image, installs the Python dependencies from `requirements.txt`, and finally sets the command to start the FastAPI application using `uvicorn`.
+
+## docker-image.yml
+
+This is a GitHub Actions workflow file that builds and pushes a Docker image to Docker Hub whenever there's a push or pull request to the `main` branch. It checks out the code, sets up Docker Buildx, logs into Docker Hub using secrets, and builds and pushes the Docker image. The Docker image is tagged as `encore7/germanTextClassifier:latest`.
