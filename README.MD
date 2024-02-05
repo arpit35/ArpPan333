@@ -5,12 +5,12 @@ This project is a text classification system that uses LightGBM for classificati
 ## Folder Structure
 - [main.py](./main.py) - [🔗](#mainpy)
 - [preprocessing](./preprocessing)
-  - [main.py](./preprocessing/main.py) - [🔗](#preprocessing/mainpy)
+  - [main.py](./preprocessing/main.py) - [🔗](#preprocessing-mainpy)
   - [text_sanitization.py](./preprocessing/text_sanitization.py) - [🔗](#text_sanitizationpy)
   - [stopwords_remove.py](./preprocessing/stopwords_remove.py) - [🔗](#stopwords_removepy)
   - [stem_words.py](./preprocessing/stem_words.py) - [🔗](#stem_wordspy)
   - [utils](./preprocessing/utils)
-    - [regex.py](./preprocessing/utils/regex.py) - [🔗](#utils/regexpy)
+    - [regex.py](./preprocessing/utils/regex.py) - [🔗](#utils-regexpy)
 - [model_training](./model_training)
   - [LGBMClassifier.py](./model_training/LGBMClassifier.py) - [🔗](#LGBMClassifier-file)
   - [gridSearch_with_lgbm.py](./model_training/gridSearch_with_lgbm.py) - [🔗](#gridSearch_with_lgbm-file)
@@ -69,11 +69,11 @@ This module contains the `stopwords_remover` function that removes German stopwo
 
 This module contains the `stemmer` function that applies stemming to the text. The function uses the SnowballStemmer for German language to stem each word in the text.
 
-## preprocessing/main.py
+## preprocessing-main.py
 
 This module contains the `preprocessor` function that applies all the preprocessing steps to a specified column of a DataFrame. The function applies the `text_sanitizer`, `stopwords_remover`, and `stemmer` functions to the specified column. It also removes the rows with empty strings if the `drop_empty_strings` parameter is `True`.
 
-## utils/regex.py
+## utils-regex.py
 
 This module contains several regular expressions that are used in the `text_sanitizer` function. These regular expressions are used to remove URLs, email addresses, special characters, non-German characters, and extra spaces from the text.
 
