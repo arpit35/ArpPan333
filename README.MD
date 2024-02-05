@@ -3,14 +3,14 @@
 This project is a text classification system that uses LightGBM for classification. The project includes scripts for data preprocessing, model training, testing, and a FastAPI application for serving the model. The project also includes Docker support for containerization and GitHub Actions workflows for continuous integration.
 
 ## Folder Structure
-- [main.py](./main.py) - [🔗](#main.py)
+- [main.py](./main.py) - [🔗](#mainpy)
 - [preprocessing](./preprocessing)
-  - [main.py](./preprocessing/main.py) - [🔗](#preprocessing/main.py)
-  - [text_sanitization.py](./preprocessing/text_sanitization.py) - [🔗](#text_sanitization.py)
-  - [stopwords_remove.py](./preprocessing/stopwords_remove.py) - [🔗](#stopwords_remove.py)
-  - [stem_words.py](./preprocessing/stem_words.py) - [🔗](#stem_words.py)
+  - [main.py](./preprocessing/main.py) - [🔗](#preprocessing/mainpy)
+  - [text_sanitization.py](./preprocessing/text_sanitization.py) - [🔗](#text_sanitizationpy)
+  - [stopwords_remove.py](./preprocessing/stopwords_remove.py) - [🔗](#stopwords_removepy)
+  - [stem_words.py](./preprocessing/stem_words.py) - [🔗](#stem_wordspy)
   - [utils](./preprocessing/utils)
-    - [regex.py](./preprocessing/utils/regex.py) - [🔗](#utils/regex.py)
+    - [regex.py](./preprocessing/utils/regex.py) - [🔗](#utils/regexpy)
 - [model_training](./model_training)
   - [LGBMClassifier.py](./model_training/LGBMClassifier.py) - [🔗](#LGBMClassifier-file)
   - [gridSearch_with_lgbm.py](./model_training/gridSearch_with_lgbm.py) - [🔗](#gridSearch_with_lgbm-file)
@@ -20,7 +20,7 @@ This project is a text classification system that uses LightGBM for classificati
 - [Dockerfile](./Dockerfile) - [🔗](#Dockerfile)
 - [.github](./.github)
   - [workflows](./.github/workflows)
-    - [docker-image.yml](./.github/workflows/docker-image.yml) - [🔗](#docker-image.yml)
+    - [docker-image.yml](./.github/workflows/docker-image.yml) - [🔗](#docker-imageyml)
 
 # main.py
 
