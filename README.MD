@@ -2,6 +2,24 @@
 
 This project is a text classification system that uses LightGBM for classification. The project includes scripts for data preprocessing, model training, testing, and a FastAPI application for serving the model. The project also includes Docker support for containerization and GitHub Actions workflows for continuous integration.
 
+## Folder Structure
+- [main.py](./main.py) - [Details](#mainpy)
+- [preprocessing](./preprocessing)
+  - [main.py](./preprocessing/main.py) - [Details](#preprocessing-mainpy)
+  - [stem_words.py](./preprocessing/stem_words.py) - [Details](#stem-words)
+  - [stopwords_remove.py](./preprocessing/stopwords_remove.py) - [Details](#stopwords-remove)
+  - [text_sanitization.py](./preprocessing/text_sanitization.py) - [Details](#text-sanitization)
+  - [utils](./preprocessing/utils)
+    - [regex.py](./preprocessing/utils/regex.py) - [Details](#regex)
+- [model_training](./model_training)
+  - [LGBMClassifier.py](./model_training/LGBMClassifier.py) - [Details](#lgbmclassifier)
+  - [gridSearch_with_lgbm.py](./model_training/gridSearch_with_lgbm.py) - [Details](#gridsearch-with-lgbm)
+- [testing](./testing)
+  - [test_text_classifier.py](./testing/test_text_classifier.py) - [Details](#test-text-classifier)
+- [app.py](./app.py) - [Details](#apppy)
+- [Docker](./Docker)
+  - [Dockerfile](./Docker/Dockerfile) - [Details](#dockerfile)
+
 # main.py
 
 This is the main script that drives the entire text classification process. It imports necessary modules, reads the data, preprocesses it, trains the model, and saves the trained model and other necessary objects for later use.
@@ -129,5 +147,3 @@ The `app.py` file is the main entry point for the FastAPI application. It sets u
 1. `Dockerfile`: This file is used to build a Docker image for the application. It starts from an Ubuntu base image, updates the system packages, installs Python3 and pip3, upgrades pip, sets the working directory to `/code`, copies the necessary files and directories into the Docker image, installs the Python dependencies from `requirements.txt`, and finally sets the command to start the FastAPI application using `uvicorn`.
 
 2. `docker-image.yml`: This is a GitHub Actions workflow file that builds and pushes a Docker image to Docker Hub whenever there's a push or pull request to the `main` branch. It checks out the code, sets up Docker Buildx, logs into Docker Hub using secrets, and builds and pushes the Docker image. The Docker image is tagged as `encore7/germanTextClassifier:latest`.
-
-3. `pytest.yml`: This is another GitHub Actions workflow file that runs pytest to test the code whenever there's a push to the repository. It sets up a matrix strategy to test with Python versions 3.8, 3.9, and 3.10. It checks out the code, sets up the Python environment, installs the necessary dependencies including pytest, and runs pytest to analyze the code.
