@@ -10,11 +10,12 @@ RUN pip3 install --upgrade pip
 WORKDIR /code
 
 COPY ./requirements.txt /code/requirements.txt
-
-COPY ./utils /code/utils
+COPY ./model /code/model
 COPY ./preprocessing /code/preprocessing
+COPY ./test ./code/test
 COPY ./app.py /code/app.py
+COPY ./saved_objects.pkl /code/saved_objects.pkl
 
 RUN pip install -r requirements.txt
 
-CMD ["python3", "app.py"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "80"]
